@@ -438,6 +438,8 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  // To optimize this code, I modified this function to only call the querySelectorAll call once 
+  // instead of the original four times that it was called.
   function changePizzaSizes(size) {
     var pizzaArray = document.querySelectorAll(".randomPizzaContainer")
 
@@ -492,6 +494,8 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+// To optimize the code, I saved the result from calling scrollTop so that it was not called 
+// in ever iteration of the for loop.
   var items = document.querySelectorAll('.mover');
   var savedScrollTop = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
