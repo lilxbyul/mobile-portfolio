@@ -439,13 +439,14 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // To optimize this code, I modified this function to only call the querySelectorAll call once 
-  // instead of the original four times that it was called.
+  // and took all the equations out of the loop as well.
   function changePizzaSizes(size) {
     var pizzaArray = document.querySelectorAll(".randomPizzaContainer")
+    var pizzaArrayLength = pizzaArray.length
+    var width = (pizzaArray[0].offsetWidth + determineDx(pizzaArray[0], size) ) + 'px'
 
-    for (var i = 0; i < pizzaArray.length; i++) {
-      var newwidth = (pizzaArray[i].offsetWidth + determineDx(pizzaArray[i], size)) + 'px';
-      pizzaArray[i].style.width = newwidth;
+    for (var i = 0; i < pizzaArrayLength; i++) {
+      pizzaArray[i].style.width = width;
     }
   }
 
@@ -461,8 +462,10 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+// Moved getElementById call out of the loop, so that the function is not called 
+// multiple times
+var pizzasDiv = document.getElementById("randomPizzas");
+for (var i = 2; i < 100; i++) {  
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
