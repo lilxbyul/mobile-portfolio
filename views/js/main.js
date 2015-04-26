@@ -439,9 +439,10 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // To optimize this code, I modified this function to only call the querySelectorAll call once 
-  // and took all the equations out of the loop as well.
+  // and changed to 'getElementsByClassName'.  Then I took all the equations out of the 
+  // loop as well.
   function changePizzaSizes(size) {
-    var pizzaArray = document.querySelectorAll(".randomPizzaContainer")
+    var pizzaArray = document.getElementsbyClassName(".randomPizzaContainer")
     var pizzaArrayLength = pizzaArray.length
     var width = (pizzaArray[0].offsetWidth + determineDx(pizzaArray[0], size) ) + 'px'
 
