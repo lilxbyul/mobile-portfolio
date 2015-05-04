@@ -439,9 +439,10 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   // To optimize this code, I modified this function to only call the querySelectorAll call once 
-  // and took all the equations out of the loop as well.
+  // and changed to 'getElementsByClassName'.  Then I took all the equations out of the 
+  // loop as well.
   function changePizzaSizes(size) {
-    var pizzaArray = document.querySelectorAll(".randomPizzaContainer")
+    var pizzaArray = document.getElementsByClassName("randomPizzaContainer")
     var pizzaArrayLength = pizzaArray.length
     var width = (pizzaArray[0].offsetWidth + determineDx(pizzaArray[0], size) ) + 'px'
 
@@ -499,7 +500,7 @@ function updatePositions() {
 
 // To optimize the code, I saved the result from calling scrollTop so that it was not called 
 // in ever iteration of the for loop.
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var savedScrollTop = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((savedScrollTop/ 1250) + (i % 5));
@@ -523,7 +524,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
