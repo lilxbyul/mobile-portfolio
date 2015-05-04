@@ -442,11 +442,7 @@ var resizePizzas = function(size) {
   // and changed to 'getElementsByClassName'.  Then I took all the equations out of the 
   // loop as well.
   function changePizzaSizes(size) {
-<<<<<<< HEAD
     var pizzaArray = document.getElementsByClassName("randomPizzaContainer")
-=======
-    var pizzaArray = document.getElementsbyClassName(".randomPizzaContainer")
->>>>>>> origin/master
     var pizzaArrayLength = pizzaArray.length
     var width = (pizzaArray[0].offsetWidth + determineDx(pizzaArray[0], size) ) + 'px'
 
